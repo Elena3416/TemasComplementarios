@@ -1,0 +1,45 @@
+<h1 class="mt-3">NgClass</h1>
+
+<div
+  class="cuadro"
+  (click)="color = !color"
+  [ngStyle]="{ background: color ? 'green' : 'red' }"
+></div>
+<!-- ngStyle, modifica el estilo en una etiqueta, basada en el estilo que le indicamos,
+Se utiliza para utilizar la funcion ternaria, condiciones, solo coloca propiedades o estilos-->
+<br />
+<div class="cuadro" [style.background]="'blue'"></div>
+<!-- style.background, con esta propiedad solo se le indica el color a mostrarse-->
+<br />
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    [ngStyle]="{ color: GetColor(person.country) }"
+    *ngFor="let person of people"
+  >
+    {{ person.name }}
+  </li>
+</ul>
+<br>
+<div class="cuadro" [ngClass]="{ 'bg-warning': color }"></div>
+<br />
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    *ngFor="let person of people"
+    [ngClass]="{
+      'text-success': person.country === 'MX',
+      'text-danger': person.country === 'CH',
+      'text-warning': person.country === 'USA',
+      'text-primary': person.country === 'SP'
+    }"
+  >
+    {{ person.name }}
+  </li>
+</ul>
+<br />
+<div class="cuadro" appRandomColor></div>
+<br />
+<div class="cuadro" appChangeColor></div>
+<br />
+<input type="text" class="inputGrandote" appChangeColorInput />

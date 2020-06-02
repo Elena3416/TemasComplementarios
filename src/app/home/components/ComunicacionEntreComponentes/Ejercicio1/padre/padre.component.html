@@ -1,0 +1,17 @@
+<h1 class="mt-3">Comunicación entre componentes</h1>
+
+<input 
+type="text" 
+class="form-control mb-3" 
+#input1 
+(keyup)="GetValorPadre(input1.value)">
+<!-- #input, crear un id en angular, input.value para llamar el valor del id-->
+
+<app-hijo1 
+[ValorPadre_Hijo]="valorPadre" 
+(EnergiaPersonas)="EnviarEnergia($event)">
+</app-hijo1>
+<!-- Se llama a la propiedad [ValorPadre_Hijo] e imprime lo que esta en el valorPadre -->
+<!-- Llamar eventos en angular es el nombre del evento con parentesis, es igual al nombre del 
+evento, para obtener el valor del evento es con $event -->
+<img [src]="genkidamaImg" alt="">

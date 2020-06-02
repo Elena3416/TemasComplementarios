@@ -1,0 +1,12 @@
+<div class="row mt-3">
+  <div class="col-12">
+    <h3>Operaciones Númericas</h3>
+    <h3>{{numero}} </h3>
+  </div>
+  <div class="col-12">
+    <button type="button" (click)="Sumar()" class="btn btn-primary">+</button>
+    <button type="button" (click)="Restar()" class="btn btn-info ml-2">-</button>
+  </div>
+</div>
+<hr />
+<app-hijo2 [valorPadre]="numero" (valorHijo)="RecibirDato($event)"></app-hijo2>

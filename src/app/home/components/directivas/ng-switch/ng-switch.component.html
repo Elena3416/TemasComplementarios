@@ -1,0 +1,51 @@
+<h1 class="mt-3">ngSwitch</h1>
+<br>
+<ul class="list-group">
+    <ng-container *ngFor="let person of people">
+        <li class="list-group-item text-success" *ngIf="person.country==='MX'">
+            {{person.name}} {{person.age}}
+        </li>
+        <li class="list-group-item text-primary" *ngIf="person.country==='CH'">
+            {{person.name}} {{person.age}}
+        </li>
+        <li class="list-group-item text-danger" *ngIf="person.country==='USA'">
+            {{person.name}} {{person.age}}
+        </li>
+        <li class="list-group-item text-warning" *ngIf="person.country==='SP'">
+            {{person.name}} {{person.age}}
+        </li>
+        <li class="list-group-item text-dark" 
+        *ngIf="person.country !=='SP' && person.country !=='USA' && person.country!=='CH'
+        && person.country !=='MX'">
+            {{person.name}} {{person.age}}
+        </li>
+    </ng-container>
+</ul>
+
+<!-- ng-container - Sirve para poner directivas, no agrega codigo html a la app,
+es decir no realiza la funcion de las directivas.
+No se permite agregar un ngfor e ngif al mismo tiempo, pero un ngfor dentro de un ngif, si se puede
+o viceversa
+-->
+<br>
+<ul class="list-group">
+    <ng-container *ngFor="let person of people" 
+                  [ngSwitch]="person.country">
+
+                <li class="list-group-item text-success" *ngSwitchCase="'MX'">
+                    {{person.name}} {{person.age}}
+                </li>
+                <li class="list-group-item text-primary" *ngSwitchCase="'CH'">
+                    {{person.name}} {{person.age}}
+                </li>
+                <li class="list-group-item text-danger" *ngSwitchCase="'USA'">
+                    {{person.name}} {{person.age}}
+                </li>
+                <li class="list-group-item text-warning" *ngSwitchCase="'SP'">
+                    {{person.name}} {{person.age}}
+                </li>
+                <li class="list-group-item text-dark" *ngSwitchDefault>
+                    {{person.name}} {{person.age}}
+              </li> 
+    </ng-container>
+</ul>

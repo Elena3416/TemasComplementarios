@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+.cuadro{
+    width: 250px;
+    height: 250px;
+}
+
+.inputGrandote{
+    width: 50%;
+    margin-bottom: 100px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 25px;
+    text-align: center;
+}

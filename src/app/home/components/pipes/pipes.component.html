@@ -1,0 +1,138 @@
+<h2 class="mt-4">Pipes</h2>
+<!-- Declaracion de Pipes -->
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th>Pipe</th>
+      <th>Formato</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Forma de invocar un pipe sencillo -->
+    <tr>
+      <td>Currency</td>
+      <td>{{ valor }} | currency</td>
+      <td>{{ valor | currency }}</td>
+    </tr>
+    <!-- Forma de invocar un pipe con parametros -->
+    <tr>
+      <td>Currency con parametro</td>
+      <td>{{ valor }} | currency:'EUR'</td>
+      <td>{{ valor | currency: "EUR" }}</td>
+    </tr>
+    <!-- Forma de declarar una fecha -->
+    <tr>
+      <td>Date</td>
+      <td>{{ fecha }} | date</td>
+      <td>{{ fecha | date: "short" }}</td>
+    </tr>
+    <!-- Forma de declarar la hora-->
+    <tr>
+      <td>DateTime</td>
+      <td>{{ fecha }} | time 'shortTime'</td>
+      <td>{{ fecha | date: "shortTime" }}</td>
+    </tr>
+    <!-- Forma para personalizar la fecha-->
+    <tr>
+      <td>Date Custom</td>
+      <td>{{ fecha }} | date:'dd/MMMM/yyyy'</td>
+      <td>{{ fecha | date: "dd/MMMM/yyyy" }}</td>
+    </tr>
+    <!-- Forma para numeros decimales  -->
+    <tr>
+      <td>Decimal</td>
+      <td>{{ ValorPi }} | number</td>
+      <td>{{ ValorPi | number }}</td>
+    </tr>
+      <!-- Forma para personalizar numeros decimales con parametro, 3 son los valores que 
+            necesito antes del decimal, 1-2 es el minimo y mayor numero de digitos que quiero
+            recibir despues del decimal
+        -->
+        <tr>
+            <td>Decimal con parametros</td>
+            <td>{{ ValorPi }} | number:'3.1-2'</td>
+            <td>{{ ValorPi | number: "3.1-2" }}</td>
+          </tr>
+    <!-- Forma para personalizar numeros decimales con parametro, 1 es el valor que 
+            necesito antes del decimal, 4-4 es el minimo y mayor numero de digitos que quiero
+            recibir despues del decimal
+        -->
+    <tr>
+      <td>Decimal con parametros</td>
+      <td>{{ ValorPi }} | number:'1.4-4'</td>
+      <td>{{ ValorPi | number: "1.4-4" }}</td>
+    </tr>
+    <!-- Formato para mandar texto en minuscula -->
+    <tr>
+      <td>LowerCase</td>
+      <td>{{ Texto }} | lowercase</td>
+      <td>{{ Texto | lowercase }}</td>
+    </tr>
+    <!-- Formato para mandar texto en mayuscula -->
+    <tr>
+      <td>UpperCase</td>
+      <td>{{ Texto }} | uppercase</td>
+      <td>{{ Texto | uppercase }}</td>
+    </tr>
+    <!-- Formato crear un pipe con porcentaje -->
+    <tr>
+      <td>Percent Pipe</td>
+      <td>{{ porcentaje }} | percent</td>
+      <td>{{ porcentaje | percent }}</td>
+    </tr>
+    <!-- Formato crear un pipe con porcentaje personalizado-->
+    <tr>
+      <td>Percent Pipe</td>
+      <td>{{ porcentaje }} | percent:'2.1-2'</td>
+      <td>{{ porcentaje | percent:'2.1-2' }}</td>
+    </tr>
+    <!-- Pipe para visualizar un arreglo con parametros-->
+    <tr>
+      <td>Slice</td>
+      <td>{{ arregloNumerico }} | slice:1:4</td>
+      <td>{{ arregloNumerico | slice:1:4 }}</td>
+    </tr>
+    <!-- Pipe de arreglos con un solo parametro -->
+    <tr>
+      <td>Slice con un solo parametro</td>
+      <td>{{ arregloNumerico }} | slice:2</td>
+      <td>{{ arregloNumerico | slice:2 }}</td>
+    </tr>
+    <!-- Pipe para contar arreglos en forma negativa -->
+    <tr>
+      <td>Slice con parametro negativo</td>
+      <td>{{ arregloNumerico }} | slice:2-1 </td>
+      <td>{{ arregloNumerico | slice:2:-1 }}</td>
+    </tr>
+    <!-- Pipe para mostrar u ocultar una contraseña -->
+    <tr>
+      <td>Show/Hide Password</td>
+      <td>{{ contrasenia }} | changePassword:Show </td>
+      <td>
+          <p>
+            {{ contrasenia | changePassword:Show }}
+          </p>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" (change)="MostrarContrasena()" class="form-check-input">
+              Mostrar/Ocultar
+            </label>
+          </div>
+      </td>
+    </tr>
+    <!-- Pipe para mostrar u ocultar imagen -->
+    <tr>
+        <td>Comprobar Imagen</td>
+        <td> Mostrar/Ocultar Imagen </td>
+        <td><img width="200px" [src]="urlImage | checkexistImage" alt=""> </td>
+      </tr>
+
+    <!-- Pipe para multiplicar dos valores numericos y mostrar el resultado -->
+    <tr>
+        <td>Multiplicacion Númerica</td>
+        <td>Multiplicar {{valor1}} * {{valor2}} | multiplicacionNumerica</td>
+        <td>{{valor1 | multiplicacionNumerica: valor2}}</td>
+      </tr>
+  </tbody>
+</table>
